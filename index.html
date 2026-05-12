@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Nur Anisah</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    font-family:'Poppins', sans-serif;
+    background:linear-gradient(135deg,#ff4e9b,#9b5cff,#4ecdc4);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+/* CARD */
+.card{
+    width:90%;
+    max-width:650px;
+    padding:50px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
+    text-align:center;
+    color:white;
+    box-shadow:0 0 30px rgba(0,0,0,0.25);
+    animation:zoom 2s ease;
+    z-index:10;
+}
+
+.card h1{
+    font-size:55px;
+    margin-bottom:15px;
+    animation:bounce 2s infinite;
+}
+
+.name{
+    font-family:'Pacifico', cursive;
+    font-size:45px;
+    color:#ffe66d;
+    margin-bottom:20px;
+}
+
+.card p{
+    font-size:20px;
+    line-height:1.8;
+}
+
+/* ANIMATION */
+@keyframes zoom{
+    from{
+        opacity:0;
+        transform:scale(0.7);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+/* BALLOONS */
+.balloon{
+    position:absolute;
+    bottom:-150px;
+    width:70px;
+    height:90px;
+    border-radius:50%;
+    animation:float 10s linear infinite;
+}
+
+.balloon::after{
+    content:"";
+    position:absolute;
+    width:2px;
+    height:80px;
+    background:white;
+    top:90px;
+    left:34px;
+}
+
+.red{background:#ff4d6d;}
+.blue{background:#4d96ff;}
+.yellow{background:#ffd93d;}
+.green{background:#6bff95;}
+.purple{background:#c77dff;}
+
+@keyframes float{
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-120vh) rotate(20deg);
+        opacity:0;
+    }
+}
+
+/* STARS */
+.star{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 2s infinite;
+}
+
+@keyframes twinkle{
+    0%,100%{opacity:0.2;}
+    50%{opacity:1;}
+}
+
+/* CONFETTI */
+.confetti{
+    position:absolute;
+    width:10px;
+    height:10px;
+    top:-20px;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(720deg);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- BALON -->
+<div class="balloon red" style="left:5%; animation-delay:0s;"></div>
+<div class="balloon blue" style="left:20%; animation-delay:2s;"></div>
+<div class="balloon yellow" style="left:40%; animation-delay:4s;"></div>
+<div class="balloon green" style="left:65%; animation-delay:1s;"></div>
+<div class="balloon purple" style="left:85%; animation-delay:3s;"></div>
+
+<!-- UCAPAN -->
+<div class="card">
+    <h1>🎉 Happy Birthday 🎂</h1>
+
+    <div class="name">Nur Anisah</div>
+
+    <p>
+        Selamat ulang tahun ✨<br><br>
+
+        Semoga panjang umur, sehat selalu,
+        dimudahkan segala urusannya,
+        dan semua impian serta harapanmu
+        bisa tercapai 💖
+    </p>
+</div>
+
+<script>
+
+/* CONFETTI */
+for(let i=0;i<120;i++){
+
+    let confetti = document.createElement("div");
+    confetti.className = "confetti";
+
+    confetti.style.left = Math.random()*100 + "vw";
+
+    confetti.style.backgroundColor =
+    `hsl(${Math.random()*360},100%,50%)`;
+
+    confetti.style.animationDuration =
+    (Math.random()*3+2) + "s";
+
+    confetti.style.opacity = Math.random();
+
+    confetti.style.width =
+    confetti.style.height =
+    (Math.random()*8+5) + "px";
+
+    document.body.appendChild(confetti);
+}
+
+/* STARS */
+for(let i=0;i<50;i++){
+
+    let star = document.createElement("div");
+    star.className = "star";
+
+    star.style.top = Math.random()*100 + "vh";
+    star.style.left = Math.random()*100 + "vw";
+
+    star.style.animationDuration =
+    (Math.random()*3+1) + "s";
+
+    document.body.appendChild(star);
+}
+</script>
+
+</body>
+</html>
